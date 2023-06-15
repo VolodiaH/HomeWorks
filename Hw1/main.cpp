@@ -3,7 +3,7 @@
 
 std::unique_ptr<Triangle> chooseTriangle(int length)
 {
-	std::string answer = "";
+	std::string answer{ "" };
 	std::cout << "A right triangle? (y,n) ";
 	std::cin >> answer;
 	if (answer[0] == 'y')
@@ -17,21 +17,21 @@ int main()
 	//you asked about it
 	std::cout << "I love C++\n";
 
-	constexpr int lowBoundary = 5;
-	constexpr int highBoundary = 53;
-	constexpr int maxWrongCount = 3;
+	constexpr int lowBoundary{ 5 };
+	constexpr int highBoundary{ 53 };
+	constexpr int maxWrongCount{ 3 };
 
-	int wrongEnterCount = 0;
+	int wrongEnterCount{ 0 };
 
 	while (true)
 	{
 		std::cout << "\nLength of triangle(" << lowBoundary << "-" << highBoundary << "): ";
 
-		int length = 5;
+		int length{ 5 };
 		std::cin >> length;
 		if (lowBoundary <= length && length <= highBoundary)
 		{
-			std::unique_ptr<Triangle>tr = chooseTriangle(length);
+			std::unique_ptr<Triangle>tr{ chooseTriangle(length) };
 			tr->drawTriangle();
 
 			wrongEnterCount = 0;
@@ -58,7 +58,7 @@ int main()
 		}
 		
 		std::cout << "\nDraw again?(y,n)";
-		std::string answer = "";
+		std::string answer{ "" };
 		std::cin >> answer;
 
 		switch (answer[0])

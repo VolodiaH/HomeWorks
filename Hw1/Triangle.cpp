@@ -42,11 +42,11 @@ void TriangleFactory::IsoscelesTriangle::drawTriangle()
 
 void TriangleFactory::IsoscelesTriangle::drawTop()
 {
-	int top = length() / 2 - 1;
+	int top{ length() / 2 - 1 };
 	if (length() & 1)
 		++top;
 
-	for (int i = 0; i < length(); ++i)
+	for (int i{ 0 }; i < length(); ++i)
 		if (i == top)
 			if (length() & 1)
 				std::cout << "**";
@@ -58,13 +58,13 @@ void TriangleFactory::IsoscelesTriangle::drawTop()
 
 void TriangleFactory::IsoscelesTriangle::drawBody()
 {
-	int height = length() / 2 - 2;
+	int height{ length() / 2 - 2 };
 
 	if (length() & 1)
 		++height;
-	for (int j = 0; j < height; ++j)
+	for (int j{ 0 }; j < height; ++j)
 	{
-		for (int i = 0; i < length(); ++i)
+		for (int i{ 0 }; i < length(); ++i)
 			if (i == j + 1 || i == length() - (j + 1))
 				std::cout << "*";
 			else
@@ -75,7 +75,7 @@ void TriangleFactory::IsoscelesTriangle::drawBody()
 
 void TriangleFactory::IsoscelesTriangle::drawBottom()
 {
-	for (int i = 0; i < length() + 1; ++i)
+	for (int i{ 0 }; i < length() + 1; ++i)
 		std::cout << "*";
 
 	std::cout << "\n";
@@ -89,9 +89,9 @@ void TriangleFactory::RightTriangle::drawTriangle()
 
 void TriangleFactory::RightTriangle::drawRightTriangle()
 {
-	for (int i = 0; i <= length(); ++i)
+	for (int i{ 0 }; i <= length(); ++i)
 	{
-		for (int j = 0; j <= length(); ++j)
+		for (int j{ 0 }; j <= length(); ++j)
 		{
 			if (j == 0 || j == i || i == length())
 				std::cout << '*';

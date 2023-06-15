@@ -89,18 +89,15 @@ void TriangleFactory::RightTriangle::drawTriangle()
 
 void TriangleFactory::RightTriangle::drawRightTriangle()
 {
-	for (int i = 0; i < length(); ++i)
+	for (int i = 0; i <= length(); ++i)
 	{
-		for (int j = 0; j < length(); ++j)
+		for (int j = 0; j <= length(); ++j)
 		{
-			if (j == 0 || j == i)
+			if (j == 0 || j == i || i == length())
 				std::cout << '*';
 			else
 				std::cout << ' ';
 		}
 		std::cout << '\n';
 	}
-
-	for(int i = 0; i < length() + 1; ++i)
-		std::cout << '*';
 }

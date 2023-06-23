@@ -1,15 +1,14 @@
-
 #include <iostream>
 // next 2 headers with C++20
 #include <format>
 #include <numbers>
 
-auto main(int argc, char* argv[]) -> void 
+auto main(int argc, char* argv[]) -> int 
 {
 	{
 		std::cout << "\n----------------------------------1---------------------------------------\n";
 
-		unsigned long long time;
+		unsigned long time;
 
 		std::cout << "Enter time: ";
 		std::cin >> time;
@@ -17,7 +16,7 @@ auto main(int argc, char* argv[]) -> void
 		constexpr int secondsInMinute = 60;
 		constexpr int secondsInHour = secondsInMinute * 60;
 
-		int hours{ 0 }, minutes{ 0 };
+		unsigned int hours{ 0 }, minutes{ 0 };
 
 		if (time >= secondsInHour) 
 		{
@@ -50,21 +49,34 @@ auto main(int argc, char* argv[]) -> void
 		std::cout << std::format("Product: {}\n", product);
 		std::cout << std::format("Average Arithmetic: {}\n", averageArithmetic);
 
-		std::cout << std::format(" first({}) equal second({}) and  is {}\n", first, second, first == second);
-		std::cout << std::format(" second({}) equal third({}) and  is {}\n", first, second, second == third);
+		std::cout << std::format(" first({}) == second({}) is {}\n", first, second, first == second);
+		std::cout << std::format(" second({}) == third({}) is {}\n", first, second, second == third);
+		
+		std::cout << std::format(" first({}) < second({}) is {}\n", first, second, first < second);
+		std::cout << std::format(" second({}) < third({}) is {}\n", first, second, second < third);
+		
+		std::cout << std::format(" first({}) <= second({}) is {}\n", first, second, first <= second);
+		std::cout << std::format(" second({}) <= third({}) is {}\n", first, second, second <= third);
+		
+		std::cout << std::format(" first({}) > second({}) is {}\n", first, second, first > second);
+		std::cout << std::format(" second({}) > third({}) is {}\n", first, second, second > third);
+		
+		std::cout << std::format(" first({}) >= second({}) is {}\n", first, second, first >= second);
+		std::cout << std::format(" second({}) >= third({}) is {}\n", first, second, second >= third);
 
 	}
 
 	{
 		std::cout << "\n----------------------------------3---------------------------------------\n";
 		
-        int first{ 0 }, second{ 0 };
+		int first{ 0 }, second{ 0 };
 		std::cout << "Enter 2 numbers: ";
 		std::cin >> first >> second;
 
 		bool lessThan{ first < second }, equal{ first == second }, moreThan{ first > second }, lessOrEqual{ first <= second };
 
 		std::cout << lessThan << "/" << equal << "/" << moreThan << "/" << lessOrEqual << '\n';
+		std::cout << std::format( "{}/{}/{}/{}", lessThan, equal, moreThan, lessOrEqual);
 
 		// appears that std::format already deduce bool as true\false not 1\0... I hope it is not UB
 		// next is for raw string std::cout... if you need it

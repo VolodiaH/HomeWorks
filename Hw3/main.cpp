@@ -39,7 +39,7 @@ auto main(int argc, char* argv[]) -> int
 
 		std::cout << std::format("Enter {} numbers: ", numbersCount);
 
-		int first{ 0 }, second{ 0 }, third{ 0 };
+		int first, second, third;
 		std::cin >> first >> second >> third;
 
 		const int sum{ first + second + third };
@@ -68,9 +68,10 @@ auto main(int argc, char* argv[]) -> int
 
 	{
 		std::cout << "\n----------------------------------3---------------------------------------\n";
-		
-		int first{ 0 }, second{ 0 };
+
 		std::cout << "Enter 2 numbers: ";
+
+		int first, second;
 		std::cin >> first >> second;
 
 		const bool lessThan{ first < second }, equal{ first == second }, moreThan{ first > second }, lessOrEqual{ first <= second };
@@ -90,8 +91,7 @@ auto main(int argc, char* argv[]) -> int
 	{
 		std::cout << "\n----------------------------------4---------------------------------------\n";
 
-		int width{ 0 }, height{ 0 };
-
+		int width, height;
 		std::cout << "Enter width:";
 		std::cin >> width;
 		std::cout << "Enter height:";
@@ -108,11 +108,11 @@ auto main(int argc, char* argv[]) -> int
 		
 		std::cout << "Enter radius: ";
 
-		double radius{ 0 };
+		double radius;
 		std::cin >> radius;
 
-		const long double square{ std::numbers::pi_v<double> *(radius * radius) };
-		const long double length{ 2 * std::numbers::pi_v<double> *radius };
+		const long double square{ std::numbers::pi *(radius * radius) };
+		const long double length{ 2 * std::numbers::pi *radius };
 
 		std::cout << std::format("Square is {}, Length is {}", square, length);
 	}

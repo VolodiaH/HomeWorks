@@ -70,18 +70,17 @@ int main()
 	{
 		std::cout << "\n----------------------------------4---------------------------------------\n";
 
-		std::cout << "Enter char: ";
+		std::cout << "Enter 3 numbers: ";
 
-		char symbol;
-		std::cin >> symbol;
+		int first, second, third;
+		std::cin >> first >> second >> third;
 
-		constexpr char upperBoundStart = 'A';
-		constexpr char upperBoundEnd = 'Z';
-
-		if (upperBoundStart <= symbol && symbol <= upperBoundEnd)
-			std::cout << "Upper case" << '\n';
-		else
-			std::cout << "Lower case" << '\n';
+		const int sum{ first+second+third };
+        constexpr int correctSumOfAngles{ 180 };
+        if(sum == correctSumOfAngles)
+            std::cout << "Correct\n";
+        else
+            std::cout << "Strange triangle\n";
 	}
 
 	{

@@ -1,3 +1,5 @@
+#include <iostream>
+
 enum Month :char
 {
 	Jan = 1,
@@ -14,11 +16,9 @@ enum Month :char
 	Dec
 };
 
-const std::string months[] = { "January" , "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+const std::string months[] = { "January" , "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
-#include <iostream>
-
-int main() 
+int main()
 {
 
 	{
@@ -26,14 +26,14 @@ int main()
 
 		std::cout << "Enter 3 numbers: ";
 
-		int first, second, third;
+		int first{ 0 }, second{ 0 }, third{ 0 };
 		std::cin >> first >> second >> third;
 
 		int max = first;
 
 		if (max < second)
 			max = second;
-		
+
 		if (max < third)
 			max = third;
 
@@ -45,10 +45,10 @@ int main()
 
 		std::cout << "Enter 2 numbers: ";
 
-		int first, second;
+		int first{ 0 }, second{ 0 };
 		std::cin >> first >> second;
 
-		const int min = (first > second) ? second : first;
+		const int min{ (first > second) ? second : first };
 
 		std::cout << "Min is: " << min << '\n';
 	}
@@ -58,7 +58,7 @@ int main()
 
 		std::cout << "Enter number: ";
 
-		int first;
+		int first{ 0 };
 		std::cin >> first;
 
 		if (first % 5 == 0 && first % 11 == 0)
@@ -72,15 +72,16 @@ int main()
 
 		std::cout << "Enter 3 numbers: ";
 
-		int first, second, third;
+		int first{ 0 }, second{ 0 }, third{ 0 };
 		std::cin >> first >> second >> third;
 
-		const int sum{ first+second+third };
-        constexpr int correctSumOfAngles{ 180 };
-        if(sum == correctSumOfAngles)
-            std::cout << "Correct\n";
-        else
-            std::cout << "Strange triangle\n";
+		const int sum{ first + second + third };
+		constexpr int correctSumOfAngles{ 180 };
+
+		if (sum == correctSumOfAngles)
+			std::cout << "Correct\n";
+		else
+			std::cout << "Strange triangle\n";
 	}
 
 	{
@@ -88,7 +89,7 @@ int main()
 
 		std::cout << "Enter number(1-12): ";
 
-		int number;
+		int number{ 0 };
 		std::cin >> number;
 
 		const Month month = static_cast<Month>(number);
@@ -107,8 +108,7 @@ int main()
 		case Month::Oct:	
 		case Month::Nov:	
 		case Month::Dec:	
-            std::cout << months[month - 1];
-        	break;
+			std::cout << months[month - 1];	break;
 
 		default:	std::cout << "Try again\n";	break;
 		}
@@ -119,7 +119,7 @@ int main()
 
 		std::cout << "Enter number(1-12): ";
 
-		int month;
+		int month{ 0 };
 		std::cin >> month;
 
 		if (Month::Jan <= month && month <= Month::Feb || Month::Dec == month)
@@ -128,9 +128,9 @@ int main()
 			std::cout << "Spring\n";
 		else if (Month::Jun <= month && month <= Month::Aug)
 			std::cout << "Summer\n";
-		else if(Month::Sep <= month && month <= Month::Nov)
+		else if (Month::Sep <= month && month <= Month::Nov)
 			std::cout << "Fall\n";
-		else 
+		else
 			std::cout << "Do you live on Earth?\n";
 	}
 

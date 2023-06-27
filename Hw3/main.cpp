@@ -8,9 +8,8 @@ auto main(int argc, char* argv[]) -> int
 	{
 		std::cout << "\n----------------------------------1---------------------------------------\n";
 
-		unsigned long time;
-
 		std::cout << "Enter time: ";
+		unsigned long time{ 0 };
 		std::cin >> time;
 
 		constexpr int secondsInMinute{ 60 };
@@ -39,7 +38,7 @@ auto main(int argc, char* argv[]) -> int
 
 		std::cout << std::format("Enter {} numbers: ", numbersCount);
 
-		int first, second, third;
+		int first{ 0 }, second{ 0 }, third{ 0 };
 		std::cin >> first >> second >> third;
 
 		const int sum{ first + second + third };
@@ -71,7 +70,7 @@ auto main(int argc, char* argv[]) -> int
 
 		std::cout << "Enter 2 numbers: ";
 
-		int first, second;
+		int first{ 0 }, second{ 0 };
 		std::cin >> first >> second;
 
 		const bool lessThan{ first < second }, equal{ first == second }, moreThan{ first > second }, lessOrEqual{ first <= second };
@@ -91,7 +90,7 @@ auto main(int argc, char* argv[]) -> int
 	{
 		std::cout << "\n----------------------------------4---------------------------------------\n";
 
-		int width, height;
+		int width{ 0 }, height{ 0 };
 		std::cout << "Enter width:";
 		std::cin >> width;
 		std::cout << "Enter height:";
@@ -108,7 +107,7 @@ auto main(int argc, char* argv[]) -> int
 		
 		std::cout << "Enter radius: ";
 
-		double radius;
+		double radius{ 0 };
 		std::cin >> radius;
 
 		const long double square{ std::numbers::pi *(radius * radius) };

@@ -1,6 +1,6 @@
 #include <iostream>
 
-enum Month :char
+enum class Month :char
 {
 	Jan = 1,
 	Feb,
@@ -16,7 +16,10 @@ enum Month :char
 	Dec
 };
 
-const std::string months[] = { "January" , "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+const std::string months[] = { "January" , "February", "March", 
+								"April", "May", "June", "July", 
+								"August", "September", "October",
+								"November", "December" };
 
 int main()
 {
@@ -108,7 +111,7 @@ int main()
 		case Month::Oct:	
 		case Month::Nov:	
 		case Month::Dec:	
-			std::cout << months[month - 1];	break;
+			std::cout << months[number - 1];	break;
 
 		default:	std::cout << "Try again\n";	break;
 		}
@@ -119,9 +122,10 @@ int main()
 
 		std::cout << "Enter number(1-12): ";
 
-		int month{ 0 };
-		std::cin >> month;
+		int number{ 0 };
+		std::cin >> number;
 
+		Month month = static_cast<Month>(number);
 		if (Month::Jan <= month && month <= Month::Feb || Month::Dec == month)
 			std::cout << "Winter\n";
 		else if (Month::Mar <= month && month <= Month::May)

@@ -97,6 +97,12 @@ int main()
 
 		const Month month = static_cast<Month>(number);
 
+		if (1 <= number && number <= 12)
+		{
+			std::cout << "Try again\n";
+			return -1;
+		}
+
 		switch (month)
 		{
 		case Month::Jan:	
@@ -111,9 +117,9 @@ int main()
 		case Month::Oct:	
 		case Month::Nov:	
 		case Month::Dec:	
-			std::cout << months[number - 1];	break;
+			std::cout << months[number - 1];
+			break;
 
-		default:	std::cout << "Try again\n";	break;
 		}
 	}
 

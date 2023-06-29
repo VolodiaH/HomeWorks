@@ -110,8 +110,8 @@ auto main(int argc, char* argv[]) -> int
 		double radius{ 0 };
 		std::cin >> radius;
 
-		const long double square{ std::numbers::pi *(radius * radius) };
-		const long double length{ 2 * std::numbers::pi *radius };
+		const long double square{ std::numbers::pi * (radius * radius) };
+		const long double length{ 2 * std::numbers::pi * radius };
 
 		std::cout << std::format("Square is {}, Length is {}", square, length);
 	}

@@ -76,7 +76,7 @@ std::string binaryString(std::size_t count)
 	std::string res("");
 
 	for (std::size_t i = 0; i < count; ++i)
-		res += (i & 1) ? "0" : "1";
+		res.insert(res.begin(), (i & 1) ? '0' : '1');
 
 	return res;
 }
@@ -99,7 +99,7 @@ void task4()
 	std::cout << "\n";
 
 	for (std::size_t i = 0; i < length; ++i)
-			std::cout << std::string(i, ' ') + std::string(length, '*') << '\n';
+		std::cout << std::string(i, ' ') + std::string(length, '*') << '\n';
 
 	std::cout << "\n";
 

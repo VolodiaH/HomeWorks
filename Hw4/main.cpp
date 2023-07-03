@@ -81,7 +81,8 @@ int main()
 		const int sum{ first + second + third };
 		constexpr int correctSumOfAngles{ 180 };
 
-		if (sum == correctSumOfAngles)
+		if (first && second && third &&
+			sum == correctSumOfAngles)
 			std::cout << "Correct\n";
 		else
 			std::cout << "Strange triangle\n";

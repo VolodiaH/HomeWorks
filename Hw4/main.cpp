@@ -75,11 +75,11 @@ int main()
 
 		std::cout << "Enter 3 numbers: ";
 
-		int first{ 0 }, second{ 0 }, third{ 0 };
+		unsigned first{ 0 }, second{ 0 }, third{ 0 };
 		std::cin >> first >> second >> third;
 
-		const int sum{ first + second + third };
-		constexpr int correctSumOfAngles{ 180 };
+		const unsigned sum{ first + second + third };
+		constexpr unsigned correctSumOfAngles{ 180 };
 
 		if (first && second && third &&
 			sum == correctSumOfAngles)

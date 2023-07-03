@@ -98,7 +98,7 @@ int main()
 
 		const Month month = static_cast<Month>(number);
 
-		if (1 <= number && number <= 12)
+		if (1 > number || number > 12)
 		{
 			std::cout << "Try again\n";
 			return -1;

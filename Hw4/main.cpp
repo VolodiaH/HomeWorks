@@ -96,32 +96,8 @@ int main()
 		int number{ 0 };
 		std::cin >> number;
 
-		const Month month = static_cast<Month>(number);
-
-		if (1 > number || number > 12)
-		{
-			std::cout << "Try again\n";
-			return -1;
-		}
-
-		switch (month)
-		{
-		case Month::Jan:	
-		case Month::Feb:	
-		case Month::Mar:	
-		case Month::Apr:	
-		case Month::May:	
-		case Month::Jun:	
-		case Month::Jul:	
-		case Month::Aug:	
-		case Month::Sep:	
-		case Month::Oct:	
-		case Month::Nov:	
-		case Month::Dec:	
-			std::cout << months[number - 1];
-			break;
-
-		}
+		std::cout << (1 > number || number > 12) ? 
+			"Try again\n" : months[number - 1];
 	}
 
 	{

@@ -34,7 +34,7 @@ void task2()
 {
 	std::cout << "Enter fib number: ";
 	
-	size_t number{ 0 };
+	std::size_t number{ 0 };
 	std::cin >> number;
 
 	int firstNumber{ 0 }, secondNumber{ 1 };
@@ -82,7 +82,7 @@ void task4()
 {
 	std::cout << "Enter triangle length: ";
 
-	size_t length{ 0 };
+	std::size_t length{ 0 };
 	std::cin >> length;
 
 	//a

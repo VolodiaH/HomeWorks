@@ -18,12 +18,12 @@ int main()
 
 void task1() 
 {
-	std::cout << "Enter init value, step, end value:";
+	std::cout << "Enter init value, step, count value:";
 
-	int init{ 0 }, delta{ 0 }, end{ 0 };
-	std::cin >> init >> delta >> end;
+	int init{ 0 }, delta{ 0 }, count{ 0 };
+	std::cin >> init >> delta >> count;
 
-	while (init < end)
+	for (; count; --count) 
 	{
 		init += delta;
 		std::cout << init << " ";
@@ -32,17 +32,17 @@ void task1()
 
 void task2() 
 {
-	std::cout << "Enter init fib number: ";
+	std::cout << "Enter fib number: ";
 	
-	int number{ 0 };
+	size_t number{ 0 };
 	std::cin >> number;
 
 	int firstNumber{ 0 }, secondNumber{ 1 };
-	for (std::size_t i = 1; i <= number; ++i)
+	for (std::size_t i{ 1 }; i <= number; ++i)
 	{
 		std::cout << firstNumber << " ";
 
-		int nextNumber = firstNumber + secondNumber;
+		int nextNumber{ firstNumber + secondNumber };
 		firstNumber = secondNumber;
 		secondNumber = nextNumber;
 	}
@@ -50,12 +50,9 @@ void task2()
 
 long long factorial(int number)
 {
-	if (number < 1)
-		return number;
-
 	long long res{ 1 };
 
-	for (std::size_t i = number; i > 0; --i)
+	for (int i{ number }; i > 0; --i)
 		res *= i;
 
 	return res;
@@ -75,7 +72,7 @@ std::string binaryString(std::size_t count)
 {
 	std::string res("");
 
-	for (std::size_t i = 0; i < count; ++i)
+	for (std::size_t i{ 0 }; i < count; ++i)
 		res.insert(res.begin(), (i & 1) ? '0' : '1');
 
 	return res;
@@ -85,27 +82,35 @@ void task4()
 {
 	std::cout << "Enter triangle length: ";
 
-	int length{ 0 };
+	size_t length{ 0 };
 	std::cin >> length;
 
-	for (std::size_t i = 0; i < length; ++i)
-		std::cout << std::string(i+1, '*') << '\n';
+	//a
+	{
+		for (std::size_t i{ 0 }; i < length; ++i)
+			std::cout << std::string(i + 1, '*') << '\n';
 
-	std::cout << "\n";
+		std::cout << "\n";
+	}
+	//b
+	{
+		for (std::size_t i{ length }; i > 0; --i)
+			std::cout << std::string(i, '*') << '\n';
 
-	for (std::size_t i = length; i > 0 ; --i)
-		std::cout << std::string(i , '*') << '\n';
+		std::cout << "\n";
+	}
+	//c
+	{
+		for (std::size_t i{ 0 }; i < length; ++i)
+			std::cout << std::string(i, ' ') + std::string(length, '*') << '\n';
 
-	std::cout << "\n";
-
-	for (std::size_t i = 0; i < length; ++i)
-		std::cout << std::string(i, ' ') + std::string(length, '*') << '\n';
-
-	std::cout << "\n";
-
-	for (std::size_t i = 1; i <= length; ++i)
-		std::cout << binaryString(i) << '\n';
-
+		std::cout << "\n";
+	}
+	//d
+	{
+		for (std::size_t i{ 1 }; i <= length; ++i)
+			std::cout << binaryString(i) << '\n';
+	}
 }
 
 void task5() 
@@ -121,7 +126,10 @@ void task5()
 		if (std::isalpha(symbol) && std::islower(symbol))
 			std::cout << std::format("Your symbol: {}\n", static_cast<char>(std::toupper(symbol)));
 		else if (std::isdigit(symbol))
-			sum += symbol - '0', std::cout << std::format("Sum: {}\n", sum);
+		{
+			sum += symbol - '0';
+			std::cout << std::format("Sum: {}\n", sum);
+		}
 		else
 			std::cout << "I do not support it!!! \n";
 

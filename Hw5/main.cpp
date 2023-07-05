@@ -68,7 +68,7 @@ void task3()
 	std::cout << std::format("Your number: {}", factorial(number));
 }
 
-std::string binaryString(std::size_t count)
+std::string stripedString(std::size_t count)
 {
 	std::string res("");
 
@@ -109,7 +109,7 @@ void task4()
 	//d
 	{
 		for (std::size_t i{ 1 }; i <= length; ++i)
-			std::cout << binaryString(i) << '\n';
+			std::cout << stripedString(i) << '\n';
 	}
 }
 

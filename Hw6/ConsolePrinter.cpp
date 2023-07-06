@@ -1,5 +1,4 @@
 #include "ConsolePrinter.h"
-
 #include <vector>
 #include <iostream>
 #include <format>

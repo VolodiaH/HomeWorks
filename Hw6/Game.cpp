@@ -1,6 +1,5 @@
 #include "Game.h"
 #include <iostream>
-
 #include "Randomizer.h"
 
 bool is_digits(const std::string& str)
@@ -12,13 +11,12 @@ Game::Game() :
 	m_countFails(0),
 	m_highScore(std::numeric_limits<int>::max())
 {
-	m_printer = std::make_unique<ConsolePrinter>();
 }
 
 void Game::start() 
 {
-	m_printer->greetings();
-	m_printer->userRangeChoice(m_defaultMaxValue);
+	m_printer.greetings();
+	m_printer.userRangeChoice(m_defaultMaxValue);
 
 	prepareMinMax();
 
@@ -26,20 +24,20 @@ void Game::start()
 	{
 		const int secretValue = Randomizer::getRandomValue(m_minValue, m_maxValue);
 
-		m_printer->startGame();
+		m_printer.startGame();
 
 		m_countFails = 0;
 
 		for (; true; ++m_countFails)
 		{
-			m_printer->enterGuess();
+			m_printer.enterGuess();
 
 			int guess{};
 			std::cin >> guess;
 
 			if (!std::cin.good())
 			{
-				m_printer->giveUp();
+				m_printer.giveUp();
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				return;
@@ -56,7 +54,7 @@ void Game::enterValueRange()
 	int min{ 1 }, max{ 0 };
 	while (min >= max)
 	{
-		m_printer->enterMinMax();
+		m_printer.enterMinMax();
 		std::cin >> min >> max;
 	}
 	
@@ -95,10 +93,10 @@ void Game::prepareMinMax()
 	if (choice == ValueChoice::Custom)
 		enterValueRange();
 	else if (choice == ValueChoice::Default)
-		m_printer->boringChoice();
+		m_printer.boringChoice();
 	else
 	{
-		m_printer->eagerChoice();
+		m_printer.eagerChoice();
 		int min{ 1 }, max{ 0 };
 		while (min >= max)
 		{
@@ -119,7 +117,7 @@ bool Game::handleGuess(int guess, int secretValue)
 	
 	if (guess == secretValue)
 	{
-		m_printer->bravo(m_countFails, m_highScore);
+		m_printer.bravo(m_countFails, m_highScore);
 
 		if (m_countFails < m_highScore)
 			m_highScore = m_countFails;
@@ -130,12 +128,12 @@ bool Game::handleGuess(int guess, int secretValue)
 	if (m_minValue <= guess && guess <= m_maxValue) {
 
 		auto [hint, lower] = calculateDistanceOfGuess(guess, secretValue, m_maxValue - m_minValue);
-		m_printer->printHint(hint, lower);
+		m_printer.printHint(hint, lower);
 		if (m_countFails & 1)
-			m_printer->eagerPlayer();
+			m_printer.eagerPlayer();
 	}
 	else
-		m_printer->showOutRangeMessage();
+		m_printer.showOutRangeMessage();
 
 	return false;
 }

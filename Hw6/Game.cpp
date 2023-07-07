@@ -2,11 +2,6 @@
 #include <iostream>
 #include "Randomizer.h"
 
-bool is_digits(const std::string& str)
-{
-	return std::all_of(str.begin(), str.end(), [](char ch) {return isdigit(ch) || ch == '-'; });
-}
-
 Game::Game() :
 	m_countFails(0),
 	m_highScore(std::numeric_limits<int>::max())

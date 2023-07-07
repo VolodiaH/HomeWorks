@@ -52,9 +52,8 @@ void ConsolePrinter::printHint(HintDistanceHelper hint, bool lower)
 		std::cout << "You are far away from target!\n";
 		break;
 	case HintDistanceHelper::AveregeDistance:
-		std::cout << "You are close target!\n";
+		std::cout << "You are close to target!\n";
 		break;
-
 	case HintDistanceHelper::CloseDistance:
 		std::cout << "God damn it! Hot like Christmas!\n";
 		break;
@@ -75,7 +74,7 @@ void ConsolePrinter::eagerChoice()
 
 void ConsolePrinter::eagerPlayer()
 {
-	std::cout << "Wake the **** up samurai! We have number to burn!\n";
+	std::cout << "Wake the **** up samurai! We have the number to burn!\n";
 }
 
 void ConsolePrinter::enterMinMax()

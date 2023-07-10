@@ -33,8 +33,6 @@ void Game::start()
 			if (!std::cin.good())
 			{
 				m_printer.giveUp();
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				return;
 			}
 

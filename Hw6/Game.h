@@ -8,7 +8,6 @@ public:
 	Game();
 	void start();
 
-
 private:
 	std::pair<HintDistanceHelper, bool> calculateDistanceOfGuess(int,int,int);
 

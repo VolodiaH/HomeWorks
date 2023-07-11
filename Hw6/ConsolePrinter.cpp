@@ -20,12 +20,12 @@ void ConsolePrinter::showOutRangeMessage()
 
 void ConsolePrinter::printOutRangeMessage()
 {
-	std::cout << madness[m_countOfRange] << "\n";
+	std::cout << Madness[m_countOfRange] << "\n";
 }
 
 void ConsolePrinter::incrementOutRangeCounter()
 {
-	if (madness.size() - 1 > m_countOfRange)
+	if (Madness.size() - 1 > m_countOfRange)
 		++m_countOfRange;
 }
 

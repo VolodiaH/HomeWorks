@@ -55,7 +55,7 @@ void ConsolePrinter::printHint(HintDistanceHelper hint, bool lower)
 		std::cout << "You are close to target!\n";
 		break;
 	case HintDistanceHelper::CloseDistance:
-		std::cout << "God damn it! Hot like Christmas!\n";
+		std::cout << "Hot damn, it's like Christmas!\n";
 		break;
 	}		
 

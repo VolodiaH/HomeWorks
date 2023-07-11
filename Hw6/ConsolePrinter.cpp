@@ -3,7 +3,7 @@
 #include <iostream>
 #include <format>
 
-static const std::vector<std::string> madness = { "Let me tell you buddy! You're out of range!",
+static const std::vector<std::string> Madness = { "Let me tell you buddy! You're out of range!",
 "Are those masks? Are we in the jungle?",
 "Most people hate long lines",
 "Did I ever tell you what the definition of insanity is?",

@@ -40,7 +40,7 @@ void ConsolePrinter::userRangeChoice(int m_defaultMaxValue)
 {
 	std::cout << std::format("\nDou wish to use default value(from {} to {}) or custom?\n", -m_defaultMaxValue, m_defaultMaxValue)
 			  << "1 - default value\n"
-	          << "2 - custom value\n"
+	          	  << "2 - custom value\n"
 			  << "3 - House's choice\n";
 }
 

@@ -60,8 +60,8 @@ std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, in
 {
 	const int posDelta = std::abs(guess - secretValue);
 
-	const int percents40{ distance / 40 };
-	const int percents20{ distance / 20 };
+	const int percents40{ distance * 40 / 100 };
+	const int percents20{ distance * 20 / 100 };
 
 	HintDistanceHelper hint;
 	if (percents40 < posDelta && posDelta <= distance)
@@ -111,8 +111,7 @@ bool Game::handleGuess(int guess, int secretValue)
 	{
 		m_printer.bravo(m_countFails, m_highScore);
 
-		if (m_countFails < m_highScore)
-			m_highScore = m_countFails;
+		m_highScore = std::min(m_countFails, m_highScore);
 
 		return true;
 	}

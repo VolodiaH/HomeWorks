@@ -17,7 +17,7 @@ void Game::start()
 
 	while (true)
 	{
-		const int secretValue = Randomizer::getRandomValue(m_minValue, m_maxValue);
+		const int SecretValue = Randomizer::getRandomValue(m_minValue, m_maxValue);
 
 		m_printer.startGame();
 
@@ -36,7 +36,7 @@ void Game::start()
 				return;
 			}
 
-			if (handleGuess(guess, secretValue))
+			if (handleGuess(guess, SecretValue))
 				break;
 		}
 	}

@@ -71,7 +71,7 @@ void translateArray(int numbers[], int size)
 
 void toUppercase(char str[]) 
 {
-	for (char* ptr{ str }; *ptr; ++ptr)
+	for (char *ptr{ str }; *ptr; ++ptr)
 	{
 		if ('a' <= *ptr && *ptr <= 'z')
 			std::cout << char{*ptr - ('a' - 'A')};

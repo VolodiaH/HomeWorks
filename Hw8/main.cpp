@@ -15,7 +15,6 @@ int main()
 		std::cout << "\n-----------------------------------------------1-----------------------------------------------------\n";
 		constexpr int size{ 10 };
 		int numbers[size];
-		int count{};
 		for (int count{ 0 }; count < size; ++count)
 			std::cin >> numbers[count];
 		

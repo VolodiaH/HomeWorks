@@ -98,7 +98,7 @@ bool isPalindrom(const char str[])
 
 void parseStringLetters(const char str[], int &vowelsCount, int &constonantsCount)
 {
-	for (char* ptr{ const_cast<char*> (str) }; *ptr; ++ptr)
+	for (char *ptr{ const_cast<char*> (str) }; *ptr; ++ptr)
 	{
 		if (*ptr == 'a' || *ptr == 'e' || *ptr == 'i' || *ptr == 'o' || *ptr == 'u' || *ptr == 'y' ||
 			*ptr == 'A' || *ptr == 'E' || *ptr == 'I' || *ptr == 'O' || *ptr == 'U' || *ptr == 'Y'

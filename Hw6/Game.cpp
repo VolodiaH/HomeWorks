@@ -52,8 +52,6 @@ void Game::enterValueRange()
 
 std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, int secretValue, int distance) const
 {
-	using enum HintDistanceHelper;
-
 	const int posDelta = std::abs(guess - secretValue);
 
 	const int percents40{ distance * 40 / 100 };
@@ -61,19 +59,17 @@ std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, in
 
 	HintDistanceHelper hint;
 	if (percents40 < posDelta && posDelta <= distance)
-		hint = BigDistance;
+		hint = HintDistanceHelper::BigDistance;
 	else if (percents20 <= posDelta && posDelta < percents40)
-		hint = AveregeDistance;
+		hint = HintDistanceHelper::AveregeDistance;
 	else
-		hint = CloseDistance;
+		hint = HintDistanceHelper::CloseDistance;
 
 	return std::make_pair(hint, (guess > secretValue));
 }
 
 void Game::prepareMinMax()
 {
-	using enum ValueChoice;
-	
 	int userValueChoice{};
 	std::cin >> userValueChoice;
 
@@ -81,9 +77,9 @@ void Game::prepareMinMax()
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 	auto choice = static_cast<ValueChoice>(userValueChoice);
-	if (choice == Custom)
+	if (choice == ValueChoice::Custom)
 		enterValueRange();
-	else if (choice == Default)
+	else if (choice == ValueChoice::Default)
 		m_printer.boringChoice();
 	else
 	{

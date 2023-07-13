@@ -70,12 +70,12 @@ void translateArray(int numbers[], int size)
 
 void toUppercase(char str[]) 
 {
-	for (char *ptr{ str }; *ptr; ++ptr)
+	for (; *str; ++str)
 	{
-		if ('a' <= *ptr && *ptr <= 'z')
-			std::cout << char{*ptr - ('a' - 'A')};
+		if ('a' <= *str && *str <= 'z')
+			std::cout << char{*str - ('a' - 'A')};
 		else
-			std::cout << *ptr;
+			std::cout << *str;
 	}
 }
 
@@ -97,10 +97,10 @@ bool isPalindrom(const char str[])
 
 void parseStringLetters(const char str[], int &vowelsCount, int &constonantsCount)
 {
-	for (const char *ptr{ str }; *ptr; ++ptr)
+	for (; *str; ++str)
 	{
-		if (*ptr == 'a' || *ptr == 'e' || *ptr == 'i' || *ptr == 'o' || *ptr == 'u' || *ptr == 'y' ||
-			*ptr == 'A' || *ptr == 'E' || *ptr == 'I' || *ptr == 'O' || *ptr == 'U' || *ptr == 'Y'
+		if (*str == 'a' || *str == 'e' || *str == 'i' || *str == 'o' || *str == 'u' || *str == 'y' ||
+			*str == 'A' || *str == 'E' || *str == 'I' || *str == 'O' || *str == 'U' || *str == 'Y'
 			)
 			++vowelsCount;
 		else
@@ -113,12 +113,9 @@ bool isEqual(const char str1[], const char str2[])
 	if (str1[0] == '\0' && str2[0] == '\0')
 		return true;
 
-	const char *ptr1{ str1 };
-	const char *ptr2{ str2 };
-
-	while (*ptr1 && *ptr2)
+	while (*str1 && *str2)
 	{
-		if (*ptr1++ != *ptr2++)
+		if (*str1++ != *str2++)
 			return false;
 	}
 	return true;

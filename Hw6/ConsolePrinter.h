@@ -4,27 +4,22 @@
 class ConsolePrinter
 {
 public:
-	ConsolePrinter();
-
 	void showOutRangeMessage();
-	void greetings();
-	void userRangeChoice(int);
-	void printHint(HintDistanceHelper, bool);
-	void boringChoice();
-	void eagerChoice();
-	void eagerPlayer();
-	void enterMinMax();
-	void giveUp();
-	void enterGuess();
-	void startGame();
-	void bravo(int, int);
+	void greetings() const;
+	void userRangeChoice(int) const;
+	void printHint(HintDistanceHelper, bool) const;
+	void boringChoice() const;
+	void eagerChoice() const;
+	void eagerPlayer() const;
+	void enterMinMax() const;
+	void giveUp() const;
+	void enterGuess() const;
+	void startGame() const;
+	void bravo(int, int) const;
 
 private:
-	void printOutRangeMessage();
+	void printOutRangeMessage() const;
 	void incrementOutRangeCounter();
 
-private:
-	int m_countOfRange;
-
+	size_t m_countOfRange{ 0 };
 };
-

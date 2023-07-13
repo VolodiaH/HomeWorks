@@ -1,6 +1,6 @@
 #pragma once
 
-enum class HintDistanceHelper 
+enum class HintDistanceHelper
 {
 	BigDistance,
 	AveregeDistance,

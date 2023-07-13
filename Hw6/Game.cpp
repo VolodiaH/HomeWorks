@@ -1,14 +1,8 @@
 #include "Game.h"
-#include <iostream>
 #include "Randomizer.h"
+#include <iostream>
 
-Game::Game() :
-	m_countFails(0),
-	m_highScore(std::numeric_limits<int>::max())
-{
-}
-
-void Game::start() 
+void Game::start()
 {
 	m_printer.greetings();
 	m_printer.userRangeChoice(m_defaultMaxValue);
@@ -44,20 +38,22 @@ void Game::start()
 
 void Game::enterValueRange()
 {
-	int min{ 1 }, max{ 0 };
+	int min{ 1 };
+	int max{ 0 };
 	while (min >= max)
 	{
 		m_printer.enterMinMax();
 		std::cin >> min >> max;
 	}
-	
+
 	m_minValue = min;
 	m_maxValue = max;
-
 }
 
-std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, int secretValue, int distance)
+std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, int secretValue, int distance) const
 {
+	using enum HintDistanceHelper;
+
 	const int posDelta = std::abs(guess - secretValue);
 
 	const int percents40{ distance * 40 / 100 };
@@ -65,11 +61,11 @@ std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, in
 
 	HintDistanceHelper hint;
 	if (percents40 < posDelta && posDelta <= distance)
-		hint = HintDistanceHelper::BigDistance;
+		hint = BigDistance;
 	else if (percents20 <= posDelta && posDelta < percents40)
-		hint = HintDistanceHelper::AveregeDistance;
+		hint = AveregeDistance;
 	else
-		hint = HintDistanceHelper::CloseDistance;
+		hint = CloseDistance;
 
 	return std::make_pair(hint, (guess > secretValue));
 }
@@ -82,7 +78,7 @@ void Game::prepareMinMax()
 	std::cin.clear();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-	ValueChoice choice = static_cast<ValueChoice>(userValueChoice);
+	auto choice = static_cast<ValueChoice>(userValueChoice);
 	if (choice == ValueChoice::Custom)
 		enterValueRange();
 	else if (choice == ValueChoice::Default)
@@ -90,7 +86,8 @@ void Game::prepareMinMax()
 	else
 	{
 		m_printer.eagerChoice();
-		int min{ 1 }, max{ 0 };
+		int min{ 1 };
+		int max{ 0 };
 		while (min >= max)
 		{
 			min = Randomizer::getRandomValue(std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
@@ -98,7 +95,6 @@ void Game::prepareMinMax()
 
 			if (min > max)
 				std::swap(min, max);
-
 		}
 		m_minValue = min;
 		m_maxValue = max;

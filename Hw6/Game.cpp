@@ -72,6 +72,8 @@ std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, in
 
 void Game::prepareMinMax()
 {
+	using enum HintDistanceHelper;
+	
 	int userValueChoice{};
 	std::cin >> userValueChoice;
 
@@ -79,9 +81,9 @@ void Game::prepareMinMax()
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 	auto choice = static_cast<ValueChoice>(userValueChoice);
-	if (choice == ValueChoice::Custom)
+	if (choice == Custom)
 		enterValueRange();
-	else if (choice == ValueChoice::Default)
+	else if (choice == Default)
 		m_printer.boringChoice();
 	else
 	{

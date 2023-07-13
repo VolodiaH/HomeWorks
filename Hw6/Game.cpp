@@ -72,7 +72,7 @@ std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, in
 
 void Game::prepareMinMax()
 {
-	using enum HintDistanceHelper;
+	using enum ValueChoice;
 	
 	int userValueChoice{};
 	std::cin >> userValueChoice;

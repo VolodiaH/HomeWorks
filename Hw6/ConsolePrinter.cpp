@@ -50,14 +50,13 @@ void ConsolePrinter::printHint(HintDistanceHelper hint, bool lower) const
 {
 	switch (hint)
 	{
-		using enum HintDistanceHelper;
-		case BigDistance:
+		case HintDistanceHelper::BigDistance:
 			std::cout << "You are far away from target!\n";
 			break;
-		case AveregeDistance:
+		case HintDistanceHelper::AveregeDistance:
 			std::cout << "You are close to target!\n";
 			break;
-		case CloseDistance:
+		case HintDistanceHelper::CloseDistance:
 			std::cout << "Hot damn, it's like Christmas!\n";
 			break;
 	}

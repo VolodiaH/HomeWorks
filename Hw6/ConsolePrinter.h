@@ -14,7 +14,7 @@ public:
 	void enterMinMax() const;
 	void giveUp() const;
 	void enterGuess() const;
-	void startGame() const;
+	void startGame();
 	void bravo(int, int) const;
 
 private:

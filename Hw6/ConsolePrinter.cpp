@@ -27,8 +27,7 @@ void ConsolePrinter::printOutRangeMessage() const
 
 void ConsolePrinter::incrementOutRangeCounter()
 {
-	if (Madness.size() - 1 > m_countOfRange)
-		++m_countOfRange;
+	m_countOfRange = (m_countOfRange + 1) % Madness.size();
 }
 
 void ConsolePrinter::greetings() const
@@ -94,9 +93,10 @@ void ConsolePrinter::enterGuess() const
 	std::cout << "Your guess(to give up enter any thing except numbers): ";
 }
 
-void ConsolePrinter::startGame() const
+void ConsolePrinter::startGame() 
 {
 	std::cout << "\n\n### GAME STARTS!!!!###\n\n";
+	m_countOfRange = 0;
 }
 
 void ConsolePrinter::bravo(int countFails, int highScore) const

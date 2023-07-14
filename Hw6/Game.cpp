@@ -36,38 +36,6 @@ void Game::start()
 	}
 }
 
-void Game::enterValueRange()
-{
-	int min{ 1 };
-	int max{ 0 };
-	while (min >= max)
-	{
-		m_printer.enterMinMax();
-		std::cin >> min >> max;
-	}
-
-	m_minValue = min;
-	m_maxValue = max;
-}
-
-std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, int secretValue, int distance) const
-{
-	const int posDelta = std::abs(guess - secretValue);
-
-	const int percents40{ distance * 40 / 100 };
-	const int percents20{ distance * 20 / 100 };
-
-	HintDistanceHelper hint;
-	if (percents40 < posDelta && posDelta <= distance)
-		hint = HintDistanceHelper::BigDistance;
-	else if (percents20 <= posDelta && posDelta < percents40)
-		hint = HintDistanceHelper::AveregeDistance;
-	else
-		hint = HintDistanceHelper::CloseDistance;
-
-	return std::make_pair(hint, (guess > secretValue));
-}
-
 void Game::prepareMinMax()
 {
 	int userValueChoice{};
@@ -99,6 +67,20 @@ void Game::prepareMinMax()
 	}
 }
 
+void Game::enterValueRange()
+{
+	int min{ 1 };
+	int max{ 0 };
+	while (min >= max)
+	{
+		m_printer.enterMinMax();
+		std::cin >> min >> max;
+	}
+
+	m_minValue = min;
+	m_maxValue = max;
+}
+
 bool Game::handleGuess(int guess, int secretValue)
 {
 	if (guess == secretValue)
@@ -121,4 +103,22 @@ bool Game::handleGuess(int guess, int secretValue)
 		m_printer.showOutRangeMessage();
 
 	return false;
+}
+
+std::pair<HintDistanceHelper, bool> Game::calculateDistanceOfGuess(int guess, int secretValue, int distance) const
+{
+	const int posDelta = std::abs(guess - secretValue);
+
+	const int percents40{ distance * 40 / 100 };
+	const int percents20{ distance * 20 / 100 };
+
+	HintDistanceHelper hint;
+	if (percents40 < posDelta && posDelta <= distance)
+		hint = HintDistanceHelper::BigDistance;
+	else if (percents20 <= posDelta && posDelta < percents40)
+		hint = HintDistanceHelper::AveregeDistance;
+	else
+		hint = HintDistanceHelper::CloseDistance;
+
+	return std::make_pair(hint, (guess > secretValue));
 }

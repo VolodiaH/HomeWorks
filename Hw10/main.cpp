@@ -80,19 +80,13 @@ void traverseSnakeByRows(const int arr[Rows][Columns])
     bool fromBegining = true;
     for (int i{ Rows - 1}; i >= 0; --i)
     {
-        int j{};
+        size_t j{};
 
         if (!fromBegining)
             j = Columns - 1;
 
         while (j < Columns) 
         {
-            // decided to add if (j < 0) because on my machine... it works fine without this if and without infinite loop
-            // do not quite understand why it is not an infinite loop on my machine... strange...
-
-            if (j < 0)
-                break;
-            
             std::cout << arr[i][j] << " ";
 
             if (fromBegining)

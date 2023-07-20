@@ -50,12 +50,12 @@ bool isSorted(const int *arr, int size, SortingDirection direction)
     {
         if (direction == SortingDirection::ascending)
         {
-            if (!(arr[i] < arr[i + 1]))
+            if (arr[i] > arr[i + 1])
                 return false;
         }  
         else
         {
-            if (!(arr[i] > arr[i + 1]))
+            if (arr[i] < arr[i + 1]))
                 return false;
         }
     }

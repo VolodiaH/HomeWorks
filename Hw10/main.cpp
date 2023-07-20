@@ -46,7 +46,7 @@ constexpr size_t ArrSize = 10;
 
 bool isSorted(const int *arr, int size, SortingDirection direction) 
 {
-    for (int i{}; i < size - 1; ++i)
+    for (size_t  i{}; i < size - 1; ++i)
     {
         if (direction == SortingDirection::ascending)
         {

@@ -64,8 +64,7 @@ int main()
 void translateArray(int numbers[], int size) 
 {
 	for (int i{}; i < size; ++i)
-		std::cout << ((numbers[i] >= 0) ? numbers[i] * 2 : 0 ) 
-		<< " ";
+		 numbers[i] = (numbers[i] >= 0) ? numbers[i] * 2 : 0 ;
 }
 
 void toUppercase(char str[]) 
@@ -73,18 +72,13 @@ void toUppercase(char str[])
 	for (; *str; ++str)
 	{
 		if ('a' <= *str && *str <= 'z')
-			std::cout << char{*str - ('a' - 'A')};
-		else
-			std::cout << *str;
+			*str = char{*str - ('a' - 'A')};
 	}
 }
 
 bool isPalindrom(const char str[]) 
 {
-	// I guess it should be done with out strlen...
-	int count{};
-	while (str[count++] != '\0');
-	--count;
+	int count{ std::strlen(str) }
 
 	for (int i{}, j{count - 1}; i < count / 2; ++i, --j)
 	{

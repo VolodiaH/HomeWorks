@@ -43,7 +43,7 @@ void print2DArray(int **arr, int numRows, int numColumns)
     }
 }
 
-void sort(int **arr2d, int rows, SortingDirection direction)
+void sort(int **arr2d, SortingDirection direction)
 {
     if (direction == SortingDirection::ByRows)
     {
@@ -88,7 +88,7 @@ void task2()
 
     print2DArray(arr2d, Rows, Columns);
 
-    sort(arr2d, 3, SortingDirection::ByRows);
+    sort(arr2d, SortingDirection::ByRows);
     std::cout << "\n";
 
     print2DArray(arr2d, Rows, Columns);

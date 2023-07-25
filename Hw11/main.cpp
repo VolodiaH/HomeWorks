@@ -48,17 +48,7 @@ void sort(int **arr2d, SortingDirection direction)
     if (direction == SortingDirection::ByRows)
     {
         for (size_t i {}; i < Rows; ++i)
-        {
-            int arr1d[Rows];
-
-            for (size_t j {}; j < Columns; ++j)
-                arr1d[j] = arr2d[i][j];
-
-            std::sort(arr1d, arr1d + Columns);
-
-            for (size_t j {}; j < Columns; ++j)
-                arr2d[i][j] = arr1d[j];
-        }
+            std::sort(arr2d[i], arr2d[i+1]);
     }
     else
     {

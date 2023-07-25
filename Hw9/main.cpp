@@ -40,7 +40,7 @@ bool calculateSum(const double *arr, int arrSize, double &sum)
 	if (arrSize < 0)
 		return false;
 
-	for (; arrSize; --arrSize, ++arr)
+	for (; arrSize != 0; --arrSize, ++arr)
 		sum += *arr;
 
 	return true;

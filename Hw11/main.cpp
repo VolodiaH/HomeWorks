@@ -35,9 +35,9 @@ enum class SortingDirection { ByRows, ByColumn };
 
 void print2DArray(int **arr, int numRows, int numColumns)
 {
-    for (int i = 0; i < numRows; ++i)
+    for (size_t i{}; i < numRows; ++i)
     {
-        for (int j = 0; j < numColumns; ++j)
+        for (size_t j {}; j < numColumns; ++j)
             std::cout << arr[i][j] << " ";
         std::cout << std::endl;
     }
@@ -47,16 +47,16 @@ void sort(int **arr2d, int rows, SortingDirection direction)
 {
     if (direction == SortingDirection::ByRows)
     {
-        for (int i = 0; i < Rows; ++i)
+        for (size_t i {}; i < Rows; ++i)
         {
             int arr1d[Rows];
 
-            for (int j = 0; j < Columns; ++j)
+            for (size_t j {}; j < Columns; ++j)
                 arr1d[j] = arr2d[i][j];
 
             std::sort(arr1d, arr1d + Columns);
 
-            for (int j = 0; j < Columns; ++j)
+            for (size_t j {}; j < Columns; ++j)
                 arr2d[i][j] = arr1d[j];
         }
     }

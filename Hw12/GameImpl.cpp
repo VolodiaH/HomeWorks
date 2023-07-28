@@ -1,5 +1,3 @@
-#pragma once
-
 #include "GameImpl.h"
 
 std::vector<SymbolMatch> GameImpl::compare2Strings(const std::string &secretWord, const std::string &guess) const

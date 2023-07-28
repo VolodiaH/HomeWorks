@@ -1,3 +1,5 @@
+#pragma once
+
 #include "GamePrinter.h"
 
 #include <iostream>

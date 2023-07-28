@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Game.h"
 #include "GameMenu.h"
 #include "Randomizer.h"

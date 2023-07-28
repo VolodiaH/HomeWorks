@@ -1,3 +1,5 @@
+#pragma once
+
 #include "GameMenu.h"
 #include <iostream>
 

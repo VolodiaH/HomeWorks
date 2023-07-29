@@ -16,6 +16,6 @@ public:
     std::vector<SymbolMatch> compare2Strings(const std::string &secretWord, const std::string &guess) const;
 
 private:
-    void PrcoceedSymbol(std::vector<SymbolMatch> &match, const std::string &secretWord, char symbol) const;
+    void proceedSymbol(std::vector<SymbolMatch> &match, const std::string &secretWord, char symbol) const;
 };
 

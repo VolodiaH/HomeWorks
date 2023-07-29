@@ -42,7 +42,7 @@ void GamePrinter::showBestScoreForSession(size_t count) const
     if (count)
         std::cout << "Your best score is " << count << " for this session\n";
     else
-        std::cout << "Great job you have game with perfect shot!\n";
+        std::cout << "Great job! You have a game with a perfect shot!\n";
 }
 
 void GamePrinter::greatCongratsCh() const
@@ -54,5 +54,5 @@ void GamePrinter::greatCongratsCh() const
 void GamePrinter::joke() const
 {
     std::cout << "For someone it's book, movie, game.\n"
-        <<"I remeber it as it was yesterday, Detroit, Sarif Industries, and that bloody lift!\n";
+        <<"I remember it as it was yesterday, Detroit, Sarif Industries, and that bloody lift!\n";
 }

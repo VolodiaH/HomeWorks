@@ -16,7 +16,7 @@ std::tuple<int, unsigned, unsigned> GameFileWork::getCurrentDate() const
 {
     const ch::time_point now{ ch::system_clock::now() };
 
-    const ch::year_month_day ymd{ ch::floor<std::chrono::days>(now) };
+    const ch::year_month_day ymd{ ch::floor<ch::days>(now) };
 
     int year = static_cast<int>(ymd.year());
     auto month = static_cast<unsigned>(ymd.month());

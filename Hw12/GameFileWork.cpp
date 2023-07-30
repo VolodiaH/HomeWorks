@@ -29,8 +29,7 @@ void GameFileWork::makeImpossibleWordOfDay() const
 {
     auto [year, month, day] = getCurrentDate();
 
-    std::ofstream file("wordOfDay.txt", std::ios::trunc);
-    if (file)
+    if (std::ofstream file("wordOfDay.txt", std::ios::trunc); file)
     {
         file << year;
         file << "\n";

@@ -27,10 +27,9 @@ std::tuple<int, unsigned, unsigned> GameFileWork::getCurrentDate() const
 
 void GameFileWork::makeImpossibleWordOfDay() const
 {
-    auto [year, month, day] = getCurrentDate();
-
     if (std::ofstream file("wordOfDay.txt", std::ios::trunc); file)
     {
+        auto [year, month, day] = getCurrentDate();
         file << year;
         file << "\n";
         file << month;

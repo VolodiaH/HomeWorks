@@ -2,7 +2,9 @@
 
 std::vector<SymbolMatch> GameImpl::compare2Strings(const std::string &secretWord, const std::string &guess) const
 {
-    std::vector<SymbolMatch> fullMatch( secretWord.length(), SymbolMatch::NoMatch);
+    const size_t size = std::max(secretWord.length(), guess.length());
+
+    std::vector<SymbolMatch> fullMatch(size, SymbolMatch::NoMatch);
     for (size_t i{}; i < secretWord.length() && i < guess.length(); ++i)
     {
         if (secretWord[i] == guess[i])

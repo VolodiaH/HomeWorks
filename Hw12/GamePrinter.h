@@ -15,5 +15,6 @@ public:
 	void greatCongratsCh() const;
 	void joke() const;
 	void badFile() const;
+	void badSize() const;
 };
 

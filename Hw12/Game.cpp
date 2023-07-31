@@ -18,7 +18,10 @@ void Game::startGame()
 {
 
     if (m_words.empty())
+    {
+        m_printer.badFile();
         std::exit(-1);
+    }
     
     size_t countFails{};
     

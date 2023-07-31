@@ -16,7 +16,6 @@ void toUpperCase(std::string &str)
 
 void Game::startGame() 
 {
-
     if (m_words.empty())
     {
         m_printer.badFile();

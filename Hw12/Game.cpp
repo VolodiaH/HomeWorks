@@ -16,10 +16,11 @@ void toUpperCase(std::string &str)
 
 void Game::startGame() 
 {
-    size_t countFails{};
 
-    if(m_words.empty())
+    if (m_words.empty())
         std::exit(-1);
+    
+    size_t countFails{};
     
     while (true)
     {

@@ -14,5 +14,6 @@ public:
 	void showBestScoreForSession(size_t count) const;
 	void greatCongratsCh() const;
 	void joke() const;
+	void badFile() const;
 };
 

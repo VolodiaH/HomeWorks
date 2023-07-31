@@ -61,3 +61,8 @@ void GamePrinter::badFile() const
 {
 	std::court << "Bad File!\n";
 }
+
+void GamePrinter::badSize() const
+{
+	std::court << "Size of your guess should be equal or lower!\n";
+}

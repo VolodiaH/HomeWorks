@@ -97,6 +97,9 @@ void Game::handleGuess(const std::string &secretWord, size_t &countFails)
         }
         else
         {
+            if(guess.length() > secretWord.length())
+                m_printer.badSize();
+            
             auto result = m_gameImp.compare2Strings(secretWord, guess);
             m_printer.showResult(result, secretWord, guess);
             ++countFails;

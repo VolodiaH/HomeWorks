@@ -56,3 +56,8 @@ void GamePrinter::joke() const
     std::cout << "For someone it's book, movie, game.\n"
         <<"I remember it as it was yesterday, Detroit, Sarif Industries, and that bloody lift!\n";
 }
+
+void GamePrinter::badFile() const
+{
+	std::court << "Bad File!\n";
+}

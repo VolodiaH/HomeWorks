@@ -83,29 +83,24 @@ void Game::handleGuess(const std::string &secretWord, size_t &countFails)
             m_bestScore = std::min(m_bestScore, countFails);
             return;
         }
-        else if (guess == Cheat)
+    	if (guess == Cheat)
         {
             m_printer.greatCongratsCh();
             return;
         }
-        else if (guess == Joke)
+    	if (guess == Joke)
         {
             m_printer.joke();
             return;
         }
-        else
         {
             if(guess.length() > secretWord.length())
-            {
                 m_printer.badSize();
-                continue;
-            }
-
+            
             auto result = m_gameImp.compare2Strings(secretWord, guess);
             m_printer.showResult(result, secretWord, guess);
             m_printer.similarToSecretWord(m_gameImp.levenshteinDistance(secretWord, guess));
             ++countFails;
         }
-
     }
 }

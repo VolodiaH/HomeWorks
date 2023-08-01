@@ -59,10 +59,16 @@ void GamePrinter::joke() const
 
 void GamePrinter::badFile() const
 {
-	std::court << "Bad File!\n";
+	std::cout << "Bad File!\n";
 }
 
 void GamePrinter::badSize() const
 {
-	std::court << "Size of your guess should be equal or lower!\n";
+	std::cout << "Size of your guess should be equal or lower!\n";
+}
+
+void GamePrinter::similarToSecretWord(double percents) const
+{
+
+    std::cout << "Your guess is: " << percents << "% to secret word\n";
 }

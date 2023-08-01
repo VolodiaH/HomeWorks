@@ -16,5 +16,6 @@ public:
 	void joke() const;
 	void badFile() const;
 	void badSize() const;
+	void similarToSecretWord(double) const ;
 };
 

@@ -5,6 +5,7 @@
 
 #include "GameImpl.h"
 #include "GameFileWork.h"
+#include "GamePrinter.h"
 
 class Game 
 {

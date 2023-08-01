@@ -1,7 +1,6 @@
 #include "Game.h"
 #include "GameMenu.h"
 #include "Randomizer.h"
-#include "GamePrinter.h"
 
 #include <algorithm>
 #include <iostream>
@@ -30,9 +29,8 @@ void Game::startGame()
             m_printer.showBestScoreForSession(m_bestScore);
 
         GameMenu menu;
-        auto choice = menu.showMenuGetChoice();
 
-        if (choice == GameMode::WordOfDay) 
+        if (const auto choice = menu.showMenuGetChoice(); choice == GameMode::WordOfDay) 
         {
             if (GameFileWork::instance().isPossibleWordOfDay())
                 m_wordOfDay = true;
@@ -102,6 +100,7 @@ void Game::handleGuess(const std::string &secretWord, size_t &countFails)
             
             auto result = m_gameImp.compare2Strings(secretWord, guess);
             m_printer.showResult(result, secretWord, guess);
+            m_printer.similarToSecretWord(m_gameImp.levenshteinDistance(secretWord, guess));
             ++countFails;
         }
 

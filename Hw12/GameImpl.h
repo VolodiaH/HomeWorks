@@ -14,8 +14,12 @@ class GameImpl
 {
 public:
     std::vector<SymbolMatch> compare2Strings(const std::string &secretWord, const std::string &guess) const;
+    double levenshteinDistance(const std::string &secretWord, const std::string &guess);
 
 private:
     void proceedSymbol(std::vector<SymbolMatch> &match, const std::string &guess, const char symbol) const;
+    
+
+
 };
 

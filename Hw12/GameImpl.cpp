@@ -24,7 +24,11 @@ void GameImpl::proceedSymbol(std::vector<SymbolMatch> &match, const std::string 
     for (size_t i{}; i < guess.length(); ++i)
     {
         if (match[i] == SymbolMatch::NoMatch && guess[i] == symbol)
-            match[i] = SymbolMatch::OtherPosition;
+        {
+              match[i] = SymbolMatch::OtherPosition;
+              break;
+        }
+            
     }
 }
 

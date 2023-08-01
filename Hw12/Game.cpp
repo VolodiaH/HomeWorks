@@ -101,7 +101,6 @@ void Game::handleGuess(const std::string &secretWord, size_t &countFails)
                 continue;
             }
 
-            
             auto result = m_gameImp.compare2Strings(secretWord, guess);
             m_printer.showResult(result, secretWord, guess);
             m_printer.similarToSecretWord(m_gameImp.levenshteinDistance(secretWord, guess));

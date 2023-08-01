@@ -21,9 +21,9 @@ std::vector<SymbolMatch> GameImpl::compare2Strings(const std::string &secretWord
 
 double GameImpl::levenshteinDistance(const std::string &secretWord, const std::string &guess)
 {
-	const std::size_t len1 = secretWord.size();
-	const std::size_t len2 = guess.size();
-	std::vector<std::vector<unsigned int>> d(len1 + 1, std::vector<unsigned int>(len2 + 1));
+    const std::size_t len1 = secretWord.size();
+    const std::size_t len2 = guess.size();
+    std::vector<std::vector<unsigned int>> d(len1 + 1, std::vector<unsigned int>(len2 + 1));
 
     d[0][0] = 0;
 

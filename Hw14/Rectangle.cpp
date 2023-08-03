@@ -3,7 +3,7 @@
 
 constexpr float PerimeterCoefficient = 2.0f;
 
-constexpr Rectangle::Rectangle(const float length, const float height):
+Rectangle::Rectangle(const float length, const float height):
 m_length{length},
 m_height{height}
 {

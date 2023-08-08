@@ -87,8 +87,9 @@ void DynamicIntArray::push_back(int element)
 	if(m_capacity == m_size)
 	{
 		if(!m_capacity)
-			m_capacity = VecDefaultSize;
-		setSize(m_capacity * 1.5);
+			setSize(VecDefaultSize);
+		else
+			setSize(m_capacity * 1.5);
 	}
 
 	m_data[m_size++] = element;

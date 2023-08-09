@@ -19,6 +19,18 @@ std::vector<SymbolMatch> GameImpl::compare2Strings(const std::string &secretWord
     return fullMatch;
 }
 
+void GameImpl::proceedSymbol(std::vector<SymbolMatch> &match, const std::string &guess, const char symbol) const
+{
+    for (size_t i{}; i < guess.length(); ++i)
+    {
+        if (match[i] == SymbolMatch::NoMatch && guess[i] == symbol)
+        {
+              match[i] = SymbolMatch::OtherPosition;
+              break;
+        }            
+    }
+}
+
 double GameImpl::levenshteinDistance(const std::string &secretWord, const std::string &guess) const
 {
     const std::size_t len1 = secretWord.size();
@@ -41,17 +53,3 @@ double GameImpl::levenshteinDistance(const std::string &secretWord, const std::s
     return result ;
 
 }
-
-void GameImpl::proceedSymbol(std::vector<SymbolMatch> &match, const std::string &guess, const char symbol) const
-{
-    for (size_t i{}; i < guess.length(); ++i)
-    {
-        if (match[i] == SymbolMatch::NoMatch && guess[i] == symbol)
-        {
-              match[i] = SymbolMatch::OtherPosition;
-              break;
-        }
-            
-    }
-}
-

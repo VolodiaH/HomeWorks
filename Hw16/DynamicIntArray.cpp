@@ -5,8 +5,10 @@
 
 static constexpr int VecDefaultSize = 100;
 
-DynamicIntArray::DynamicIntArray():
-DynamicIntArray(VecDefaultSize)
+DynamicIntArray::DynamicIntArray:
+m_data{ new int[VecDefaultSize] },
+m_capacity{ VecDefaultSize },
+m_size{ 0 }
 {
 }
 

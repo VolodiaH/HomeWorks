@@ -45,7 +45,7 @@ void task1()
     std::cout << "Average mark is: " << calcStudentAverage(st) << "\n";
 }
 
-bool sortStudents(const Student &left, const Student &right)
+bool compareStudents(const Student &left, const Student &right)
 {
     return calcStudentAverage(left) > calcStudentAverage(right);
 }
@@ -54,7 +54,7 @@ void task2()
 {
     Student students[3]{  {"Chris",{3,5,6,7}}, {"Albert",{1,2,3,4}},{"Jill",{34,12,67,56}}};
 
-    std::sort(students, students + 3, sortStudents);
+    std::sort(students, students + 3, compareStudents);
 
     for (const auto &st : students)
         std::cout << st;

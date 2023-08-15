@@ -74,7 +74,7 @@ float Vector2d::operator()() const
 
 float& Vector2d::operator[](const size_t i)
 {
-	return (i == 1) ? m_x : m_y;
+	return (&m_x)[i];
 }
 
 std::ostream &operator<<(std::ostream &os, const Vector2d &v)

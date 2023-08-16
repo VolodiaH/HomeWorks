@@ -140,7 +140,7 @@ int main()
     std::cin >> petChoice;
    
 
-    std::unique_ptr<Animal> animal = createAnimal(petChoice);
+    const std::unique_ptr<Animal> animal = createAnimal(petChoice);
     animal->eat();
   
 }

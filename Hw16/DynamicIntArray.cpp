@@ -13,12 +13,10 @@ m_size{ 0 }
 }
 
 DynamicIntArray::DynamicIntArray(std::size_t size):
-m_data{ new int[size] },
-m_capacity{ size },
-m_size{ size }
+m_data{ new int[(size > 0) ? size : VecDefaultSize ] },
+m_capacity{ (size > 0) ? size : VecDefaultSize },
+m_size{ (size > 0) ? size : VecDefaultSize }
 {
-	if(size <= 0)
-		throw std::bad_alloc();
 
 	std::fill_n(m_data, m_capacity, 0);
 }

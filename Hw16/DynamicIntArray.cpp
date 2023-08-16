@@ -59,7 +59,7 @@ int& DynamicIntArray::operator[](std::size_t index) const
 
 void DynamicIntArray::setSize(std::size_t newSize)
 {
-	if(newSize == m_size || m_size < 0)
+	if(newSize == m_size || m_size <= 0)
 		return;
 
 	const size_t copyCount = std::min(newSize, m_size);

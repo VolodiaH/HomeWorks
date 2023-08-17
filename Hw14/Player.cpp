@@ -44,9 +44,9 @@ void Team::addPlayer(Player* player)
 void Team::removePlayer(Player* player)
 {
     const auto it = std::ranges::find_if(m_players, 
-                                         [player](const auto& pl)
+                                         [player](auto pl)
                                          {
-	                                         return player->name() == pl->name();
+	                                         return player == pl;
                                          });
 
     if (it != std::end(m_players))

@@ -7,10 +7,10 @@
 int main()
 {
 	//Game cycle
-	Player player1("OnePunchMan", new SniperRifle);
-	Player player2("JohnCena", new Axe, new DefenderClass);
-	Player player3("Cpt. Price", new AssaultRifle, new AttackerClass);
-	Player player4("Wolverine", new AdamantiumClaws, new AttackerClass);
+	Player player1("OnePunchMan", 3, new SniperRifle);
+	Player player2("JohnCena",90 , new Axe, new DefenderClass);
+	Player player3("Cpt. Price",100,  new AssaultRifle, new AttackerClass);
+	Player player4("Wolverine", 78, new AdamantiumClaws, new AttackerClass);
 
 	player3.attack(player1,400);
 	player3.attack(player1,500);

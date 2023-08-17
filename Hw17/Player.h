@@ -7,8 +7,8 @@
 class Player
 {
 public:
-	Player(const std::string &name = "Auto Generated NameId", Weapon *weapon = new BareHand, PlayerClass *playerClass = new DefaultClass)
-		: m_name(name), m_weapon(weapon), m_class(playerClass) {}
+	Player(const std::string &name = "Auto Generated NameId", const int level, Weapon *weapon = new BareHand, PlayerClass *playerClass = new DefaultClass)
+		: m_name(name), m_level{level}, m_weapon(weapon), m_class(playerClass) {}
 	~Player()
 	{
 		delete m_class;
@@ -29,7 +29,7 @@ public:
 private:
 	int m_health = 100;
 	std::string m_name;
-
+	size_t m_level;
 	PlayerClass *m_class = nullptr;
 	Weapon *m_weapon = nullptr;
 };

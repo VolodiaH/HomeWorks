@@ -3,9 +3,7 @@
 class Weapon
 {
 public:
-	//TODO: Feel free to add other properties
-	//Or use another approach for damage calculation:
-	//health, stamina, weight, level, speed or whatever you have in mind.
+	virtual std::string getName() const = 0;
 	virtual int getDamageRate(int distance) const = 0;
 	virtual ~Weapon() = default;
 };
@@ -21,23 +19,31 @@ private:
 
 class SniperRifle : public RangedWeapon
 {
+	std::string getName() const override { return "SniperRifle"; }
 	float getPrecision(int distance) const override;
 };
 
-//TODO
 class Pistol : public RangedWeapon
 {
+	std::string getName() const override { return "Pistol"; }
 	float getPrecision(int distance) const override;
 };
 
-//TODO
+class Shoutgan : public RangedWeapon
+{
+	std::string getName() const override { return "Shoutgan"; }
+	float getPrecision(int distance) const override;
+};
+
 class AssaultRifle : public RangedWeapon
 {
+	std::string getName() const override { return "AssaultRifle"; }
 	float getPrecision(int distance) const override;
 };
 
 class MeleeWeapon : public Weapon
 {
+	std::string getName() const override { return "MeleeWeapon"; }
 	virtual int damage() const = 0;
 	int getDamageRate(int distance) const override
 	{
@@ -48,15 +54,18 @@ class MeleeWeapon : public Weapon
 
 class BareHand : public MeleeWeapon
 {
+	std::string getName() const override { return "BareHand"; }
 	int damage() const override { return 1;}
 };
 
 class Axe : public MeleeWeapon
 {
+	std::string getName() const override { return "Axe"; }
 	int damage() const override { return 3; }
 };
 
 class AdamantiumClaws : public MeleeWeapon
 {
+	std::string getName() const override { return "AdamantiumClaws"; }
 	int damage() const override {return 25;}
 };

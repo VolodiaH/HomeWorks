@@ -50,3 +50,20 @@ float Pistol::getPrecision(int distance) const
 	}
 	return 1.0f;
 }
+
+float Shoutgan::getPrecision(int distance) const
+{
+	if (distance > 100)
+	{
+		return 1.1f;
+	}
+	if (distance > 50)
+	{
+		return 2.7f;
+	}
+	if (distance > 15)
+	{
+		return 3.9f;
+	}
+	return 10.0f;
+}

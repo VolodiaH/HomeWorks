@@ -25,14 +25,13 @@ void Player::attack(const Player &other, int distance)
 		return;
 	}
 
-	//#TODO: Optional: Add your own damage-related modifier
-	const int damage = static_cast<int>(m_weapon->getDamageRate(distance) * m_class->getDamageMultiplier() / other.m_class->getDefenseMultiplier());
+	const int damage = static_cast<int>(m_weapon->getDamageRate(distance) * m_class->getDamageMultiplier() / other.m_class->getDefenseMultiplier() * m_level);
 	m_health -= damage;
 
-	std::cout << "Player " << getName() << " attacked Player " << other.getName() <<
-		" with damage " << damage << std::endl;
+	std::cout << "Player " << getName() << " attacked Player " << other.getName() << "with weapon" << m_weapon->getName() <<
+		" with damage " << damage << '\n';
 
-	std::cout << "Health left: " << m_health << std::endl;
+	std::cout << "Health left: " << m_health << '\n';
 
 	if (m_health <= 0)
 	{

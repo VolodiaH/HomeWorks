@@ -43,9 +43,7 @@ void Team::addPlayer(Player* player)
 
 void Team::removePlayer(Player* player)
 {
-    auto it = std::ranges::find_if(m_players, player);
-
-    if (it != std::end(m_players))
+    if (const auto it = std::ranges::find(m_players, player); it != std::end(m_players))
     {
         (*it)->setTeam(nullptr);
         m_players.erase(it);

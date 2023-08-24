@@ -205,6 +205,7 @@ void Game::run()
 			}
 			else
 			{
+				//Maybe in the future I will fix this 5 deep nest
 				UI::printCurrentFightResult(munchkinMonsterDifference);
 				UI::UserInput input = UI::readUserBehavior();
 				if (input == UI::UserInput::Runaway)

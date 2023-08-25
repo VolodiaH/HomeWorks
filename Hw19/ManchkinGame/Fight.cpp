@@ -57,7 +57,7 @@ void Fight::victoryFlow(ModifierDeck *modifierDeck, ItemDeck *itemsDeck)
 		
 		const size_t addCards = policy->apply(m_monster);
 
-		std::vector<Modifier *> modifiers;
+		auto modifiers = m_munchkin->getModifiers();
 		modifiers.reserve(addCards);
 
 		for (size_t i{}; i < addCards; ++i)

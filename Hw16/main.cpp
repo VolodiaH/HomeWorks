@@ -9,7 +9,7 @@ int main ()
 	{
 		intArray.push_back(i);
 	}
-	//intArray.setSize(15);
+	intArray.setSize(15);
 	intArray.push_back(45);
 	//intArray.clear();
 	intArray.push_back(45);

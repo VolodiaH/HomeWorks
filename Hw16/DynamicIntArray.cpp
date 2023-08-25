@@ -2,10 +2,11 @@
 
 #include <algorithm>
 #include <new>
+#include <stdexcept>
 
 static constexpr int VecDefaultSize = 100;
 
-DynamicIntArray::DynamicIntArray:
+DynamicIntArray::DynamicIntArray() :
 m_data{ new int[VecDefaultSize] },
 m_capacity{ VecDefaultSize },
 m_size{ 0 }
@@ -13,12 +14,10 @@ m_size{ 0 }
 }
 
 DynamicIntArray::DynamicIntArray(std::size_t size):
-m_data{ new int[(size > 0) ? size : VecDefaultSize ] },
-m_capacity{ (size > 0) ? size : VecDefaultSize },
-m_size{ (size > 0) ? size : VecDefaultSize }
+m_data{ new int[(size > VecDefaultSize) ? size : VecDefaultSize ] },
+m_capacity{ (size > VecDefaultSize) ? size : VecDefaultSize },
+m_size{ 0 }
 {
-
-	std::fill_n(m_data, m_capacity, 0);
 }
 
 DynamicIntArray::DynamicIntArray(const DynamicIntArray& other):
@@ -39,15 +38,14 @@ DynamicIntArray& DynamicIntArray::operator=(const DynamicIntArray& other)
 	if(&other == this)
 		return *this;
 
-	m_size = other.m_size;
-	m_capacity = other.m_capacity;
-
 	delete[]m_data;
 
-	m_data = new int[m_capacity];
+	m_data = new int[other.m_capacity];
 
-	memcpy(m_data, other.m_data, m_size * sizeof(int));
-	std::fill(m_data + m_size, m_data + m_capacity, 0);
+	memcpy(m_data, other.m_data, other.m_size * sizeof(int));
+
+	m_size = other.m_size;
+	m_capacity = other.m_capacity;
 
 	return *this;
 }
@@ -57,9 +55,17 @@ int& DynamicIntArray::operator[](std::size_t index) const
 	return m_data[index];
 }
 
+int& DynamicIntArray::at(std::size_t index) const
+{
+	if(index < m_size)
+		return m_data[index];
+
+	throw std::out_of_range("Index is out of range");
+}
+
 void DynamicIntArray::setSize(std::size_t newSize)
 {
-	if(newSize == m_size || m_size <= 0)
+	if(newSize == m_size || m_size < 0)
 		return;
 
 	const size_t copyCount = std::min(newSize, m_size);
@@ -71,26 +77,20 @@ void DynamicIntArray::setSize(std::size_t newSize)
 	delete[] m_data;
 
 	m_data = tmpArray;
-
+	m_size = copyCount;
 	m_capacity = newSize;
-	std::fill(m_data + copyCount, m_data + m_capacity, 0);
+	
 }
 
 void DynamicIntArray::clear()
 {
-	std::fill_n(m_data, m_size, 0);
 	m_size = 0;
 }
 
 void DynamicIntArray::push_back(int element)
 {
 	if(m_capacity == m_size)
-	{
-		if(!m_capacity)
-			setSize(VecDefaultSize);
-		else
-			setSize(m_capacity * 1.5);
-	}
+	    setSize(m_capacity * 1.5);
 
 	m_data[m_size++] = element;
 }

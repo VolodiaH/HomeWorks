@@ -18,7 +18,11 @@ public:
 
     DynamicIntArray& operator=(const DynamicIntArray& other);
 
+    // fast access
     int& operator[](std::size_t index) const;
+
+    // slow access, but with check
+    int& at(std::size_t index) const;
 
     //delete previous memory, create new inner array with updated size
     void setSize(std::size_t newSize);

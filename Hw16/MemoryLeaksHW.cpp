@@ -35,7 +35,7 @@ StringCustom &StringCustom::operator=(const char *c_str)
     }
     else
     {
-        const std::size_t size = strlen(c_str);
+        const std::size_t size = strlen(c_str) + 1;
         m_str = new char[size];
 
         for (size_t i {}; i < size; i++)

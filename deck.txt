@@ -1,7 +1,0 @@
-Weapon;The Sword of DOOM;5;It belongs to Doom
-UndeadWeapon;Stinky knife;2;Goblin's Simple weapon
-FireWeapon;Holy grenade;4;Ale-luya
-FireWeapon;Holy grenade;4;Ale-luya
-FireWeapon;Holy grenade;4;Ale-luya
-HolySword;Silver sword;6;Created to kill filthy zombies
-SoulWeapon;Frostmourne;2;With every defeated enemy it becomes stronger

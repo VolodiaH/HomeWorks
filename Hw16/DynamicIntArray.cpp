@@ -16,8 +16,9 @@ m_size{ 0 }
 DynamicIntArray::DynamicIntArray(std::size_t size):
 m_data{ new int[(size > 0) ? size : VecDefaultSize ] },
 m_capacity{ (size > 0) ? size : VecDefaultSize },
-m_size{ 0 }
+m_size{ size }
 {
+	std::fill(m_data, m_data + size, 0);
 }
 
 DynamicIntArray::DynamicIntArray(const DynamicIntArray& other):

@@ -76,7 +76,7 @@ bool bracketsOk(const std::string &line)
             ok = handleNonEmptyBrackets(brackets, ch);
 
         if (!ok)
-            break;
+            return false;
     }
 
     if (brackets.empty())

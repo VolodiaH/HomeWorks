@@ -1,7 +1,3 @@
-// This is a personal academic project. Dear PVS-Studio, please check it.
-
-// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
-
 #pragma once
 
 #include <algorithm>
@@ -137,7 +133,7 @@ T &DynamicIntArray<T>::at(std::size_t index) const
 template<typename T>
 void DynamicIntArray<T>::resize(std::size_t newSize, bool saveSize)
 {
-    if (newSize == m_size || m_size < 0)
+    if (newSize == m_size)
         return;
 
     const size_t copyCount = std::min(newSize, m_size);

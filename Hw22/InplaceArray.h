@@ -9,7 +9,6 @@ template <typename T, int Size>
 class InplaceArray
 {
 public:
-    //default c-tor
     InplaceArray() = default;
 
     //c-tor with size
@@ -75,58 +74,6 @@ public:
 
     void popBack();
     
-    class InplaceIterator
-    {
-    public:
-        InplaceIterator(size_t literalSize, T *data, T *dynamicData, size_t currPos = 0) :
-            m_literalSize{ literalSize }, m_data{ data }, m_dynamicData{ dynamicData }, m_currentPos{ currPos } {}
-
-        bool operator==(const InplaceIterator &other) const
-        {
-            return m_currentPos == other.m_currentPos;
-        }
-
-        bool operator!=(const InplaceIterator &other) const
-        {
-            return !(*this == other);
-        }
-
-        /*int operator-(const InplaceIterator other)
-        {
-            return m_currentPos - other.m_currentPos;
-        }*/
-
-        InplaceIterator operator-(const InplaceIterator &other)
-        {
-            return InplaceIterator(m_literalSize, m_data, m_dynamicData, m_currentPos - other.m_currentPos);
-        }
-
-        InplaceIterator &operator++()
-        {
-            ++m_currentPos;
-            return *this;
-        }
-
-        T& operator*()
-        {
-            if(m_currentPos < m_literalSize)
-                return m_data[m_currentPos];
-
-            return m_dynamicData[m_currentPos - m_literalSize];
-        }
-    private:
-        const size_t m_literalSize;
-
-        T *m_data;
-        T *m_dynamicData;
-
-        size_t m_currentPos;
-    };
-    InplaceIterator begin() { return InplaceIterator(Size, m_data, m_dynamicData); }
-    InplaceIterator end()
-    {
-        return InplaceIterator(Size, m_data, m_dynamicData, getSize());
-    }
 private:
     void allocateMemory(size_t size);
     void resize(size_t size, bool saveSize = false);
@@ -216,7 +163,7 @@ T &InplaceArray<T,Size>::at(std::size_t index) const
 template<typename T, int Size>
 void InplaceArray<T,Size>::resize(std::size_t newSize, bool saveSize)
 {
-    if (newSize == m_dynamicSize || m_dynamicSize < 0)
+    if (newSize == m_dynamicSize)
         return;
 
     const size_t copyCount = std::min(newSize, m_dynamicSize);

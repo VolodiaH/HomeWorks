@@ -79,20 +79,18 @@ bool bracketsOk(const std::string &line)
             return false;
     }
 
-    if (brackets.empty())
-        return true;
-
-    return false;
+   return brackets.empty();
 }
 
 bool handleEmptyBrackets(std::stack<char> &brackets, const char ch)
 {
     if (ch == '(' || ch == '{' || ch == '[')
+    {
         brackets.push(ch);
-    else
-        return false;
-
-    return true;
+        return true;
+    }
+    
+    return false;
 }
 
 bool handleNonEmptyBrackets(std::stack<char> &brackets, const char ch)

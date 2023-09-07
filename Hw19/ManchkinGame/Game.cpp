@@ -205,6 +205,7 @@ void Game::run()
 			}
 			else
 			{
+				//Maybe in the future I will fix this 5 deep nest
 				UI::printCurrentFightResult(munchkinMonsterDifference);
 				UI::UserInput input = UI::readUserBehavior();
 				if (input == UI::UserInput::Runaway)
@@ -218,7 +219,8 @@ void Game::run()
 				{
 					UI::printModifiers(&m_munchkin);
 					const int choice = UI::selectModifierFromHand(static_cast<short>(m_munchkin.getModifiers().size()));
-					
+
+					// 6 deep nest.....
 					if (choice != -1)
 						fight.applyModifier(choice - 1);
 				}

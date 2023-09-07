@@ -55,7 +55,6 @@ void Fight::victoryFlow()
 	if(policy)
 		policy->apply(m_monster, m_munchkin);
 	
-
 	std::ranges::for_each(m_munchkin->getItems(), [](auto& item){ item->enemyDefeated();});
 
 	m_result = FightResult::MunchkinWon;

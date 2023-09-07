@@ -44,27 +44,16 @@ void Fight::runawayFlow()
 	m_result = FightResult::MonsterWon;
 }
 
-void Fight::victoryFlow(ModifierDeck *modifierDeck, ItemDeck *itemsDeck)
+void Fight::victoryFlow()
 {
 	
 	m_munchkin->updateLevelBy(1);
 
-	m_munchkin->addItem(itemsDeck->generateItem());
+	m_munchkin->addItem(ItemDeck::instance().generateItem());
 
 	Victory *policy = m_monster->getVictoryPolicy();
 	if(policy)
-	{
-		
-		const size_t addCards = policy->apply(m_monster);
-
-		std::vector<Modifier *> modifiers;
-		modifiers.reserve(addCards);
-
-		for (size_t i{}; i < addCards; ++i)
-			modifiers.emplace_back(modifierDeck->generateModifier());
-
-		m_munchkin->addModifiers(modifiers);
-	}
+		policy->apply(m_monster, m_munchkin);
 	
 
 	std::ranges::for_each(m_munchkin->getItems(), [](auto& item){ item->enemyDefeated();});

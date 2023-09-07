@@ -199,7 +199,7 @@ void Game::run()
 
 			if (munchkinMonsterDifference > 0)
 			{
-				fight.victoryFlow(&m_modifiersDeck, &m_itemsDeck);
+				fight.victoryFlow();
 				UI::printMunchkinWon();
 				UI::pressAnyKeyToContinue();
 			}

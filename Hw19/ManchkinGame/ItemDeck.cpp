@@ -34,6 +34,12 @@ ItemDeck::ItemDeck()
 	
 }
 
+ItemDeck& ItemDeck::instance()
+{
+	static ItemDeck itemDeck;
+	return itemDeck;
+}
+
 std::vector<Item*> ItemDeck::generateItems()
 {
 	std::random_device rd;
@@ -56,7 +62,7 @@ std::vector<Item*> ItemDeck::generateItems()
 
 Item* ItemDeck::generateItem()
 {
-	return algorithm::getItem(m_itemsDataBase, m_itemsStatus);
+	return algorithm::getUnUsedItem(m_itemsDataBase, m_itemsStatus);
 }
 
 void ItemDeck::createItems(const DeckData &cards)

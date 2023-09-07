@@ -24,6 +24,12 @@ ModifierDeck::ModifierDeck()
 
 }
 
+ModifierDeck& ModifierDeck::instance()
+{
+	static ModifierDeck modifierDeck;
+	return modifierDeck;
+}
+
 Modifier* ModifierDeck::generateModifier() 
 {
 	// It will be always unique. because we create it in run-time!(Evil laughter)

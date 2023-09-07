@@ -10,12 +10,13 @@
 class ItemDeck
 {
 public:
-	ItemDeck();
+	static ItemDeck &instance();
 
 	std::vector<Item*> generateItems();
 	Item* generateItem();
 
 private:
+	ItemDeck();
 	using Card = std::vector<std::string>;
 	using DeckData = std::vector<Card>;
 

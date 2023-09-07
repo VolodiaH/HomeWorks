@@ -8,7 +8,7 @@
 class Game
 {
 public:
-	Game() = default;
+	Game() : m_itemsDeck(ItemDeck::instance()), m_modifiersDeck(ModifierDeck::instance()){}
 	void run();
 
 private:
@@ -17,7 +17,7 @@ private:
 
 private:
 	Munchkin m_munchkin;
-	ItemDeck m_itemsDeck;
-	ModifierDeck m_modifiersDeck;
+	ItemDeck &m_itemsDeck ;
+	ModifierDeck &m_modifiersDeck;
 	MonsterDeck m_monstersDeck;
 };

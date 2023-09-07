@@ -34,5 +34,5 @@ MonsterDeck::MonsterDeck()
 
 Monster* MonsterDeck::generateMonster() {
 	
-	return algorithm::getItem(m_monstersDatabase, m_monsterStatus);
+	return algorithm::getUnUsedItem(m_monstersDatabase, m_monsterStatus);
 }

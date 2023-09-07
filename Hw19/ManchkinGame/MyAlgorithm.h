@@ -19,7 +19,7 @@ namespace algorithm
 	int randomNumber(int min, int max);
 
     template<class T>
-    T *getItem(const std::vector<std::unique_ptr<T>> &deck, std::vector<StatusDeck> &statuses)
+    T *getUnUsedItem(const std::vector<std::unique_ptr<T>> &deck, std::vector<StatusDeck> &statuses)
     {
 		const auto it = std::ranges::find(statuses, StatusDeck::Free);
 

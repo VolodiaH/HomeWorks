@@ -30,7 +30,7 @@ public:
 	int getMonsterPower() const { return m_monsterPower; }
 
 	void runawayFlow();
-	void victoryFlow(ModifierDeck *modifierDeck, ItemDeck *itemsDeck);
+	void victoryFlow();
 
 private:
 	void calculateMunchkinPower();

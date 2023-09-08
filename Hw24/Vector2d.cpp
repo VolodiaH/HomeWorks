@@ -89,11 +89,6 @@ float Vector2d::dotProduct(const Vector2d& other) const
 	return m_x1 * other.m_y1 + m_y2 * other.m_x2;
 }
 
-Vector2d Vector2d::crossProduct(const Vector2d& other) const
-{
-	return {m_x1 * other.m_y1, m_y2 * other.m_x2};
-}
-
 Vector2d Vector2d::negate() const
 {
 	return {-m_x1, -m_y1};
@@ -144,3 +139,9 @@ std::istream &operator>>(std::istream &is, Vector2d &v)
 	return is;
 }
 
+Vector3d crossProduct(const Vector3d &lhs, const Vector3d &rhs)
+{
+	return { lhs.y * rhs.z - lhs.z * rhs.y,
+			 lhs.z * rhs.x - lhs.x * rhs.z,
+			 lhs.x * rhs.y - lhs.y * rhs.x };
+}

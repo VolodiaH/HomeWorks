@@ -38,7 +38,6 @@ public:
 	friend std::istream &operator>>(std::istream &is, Vector2d &v);
 
 	float dotProduct(const Vector2d &other) const;
-	Vector2d crossProduct(const Vector2d &other) const;
 	Vector2d negate() const;
 
 	VectorRelativeState getRelativeState(const Vector2d &other) const;
@@ -52,3 +51,11 @@ private:
 	float m_y2{0.0};
 };
 
+struct Vector3d
+{
+	float x;
+	float y;
+	float z;
+};
+
+Vector3d crossProduct(const Vector3d &lhs, const Vector3d &rhs)

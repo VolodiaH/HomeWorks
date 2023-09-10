@@ -84,7 +84,7 @@ long long forHardwareConcurrency(const std::vector<int> &vec)
 
     std::vector<std::future<long long>> futures;
 
-    for(size_t i{}, currValue{}; i < threads; ++i, currValue += step)
+    for (size_t i{}, currValue{}; i < threads; ++i, currValue += step)
         futures.emplace_back(std::async(std::launch::async, toSum, vec.begin() + currValue, vec.begin() + currValue + step));
 
     long long res{};
@@ -133,12 +133,12 @@ int main()
     for (auto &v : collections)
         fillRandomNumbers(v);
 
-    for(auto &v : collections)
+    for (auto &v : collections)
         measureTime(v, forSingleThread, "single thread", "");
 
     std::cout << '\n';
 
-    for(auto &v : collections)
+    for (auto &v : collections)
         measureTime(v, forTwoThreads, "2 threads", "Lambda");
 
     std::cout << '\n';
@@ -148,27 +148,27 @@ int main()
 
     std::cout << '\n';
 
-    for(auto &v : collections)
+    for (auto &v : collections)
         measureTime(v, forTwoThreadsPar, "2 threads", "with std::execution::par and lambda");
 
     std::cout << '\n';
 
-    for(auto &v : collections)
+    for (auto &v : collections)
         measureTime(v, forTwoThreadsNoLambdaPar, "2 threads", "No Lambda std::execution::par ");
 
     std::cout << '\n';
 
-    for(auto &v : collections)
+    for (auto &v : collections)
         measureTime(v, forTwoThreadsFunc, "2 threads", "other Function std::execution::par ");
 
     std::cout << '\n';
     
-    for(auto &v : collections)
+    for (auto &v : collections)
         measureTime(v, forHardwareConcurrency, std::to_string(std::thread::hardware_concurrency()) + " threads", "");
 
     std::cout << '\n';
 
-    for(auto &v : collections)
+    for (auto &v : collections)
         measureTime(v, forDoubleHardwareConcurrency, std::to_string(std::thread::hardware_concurrency() * 2) + " threads", "");
 }
 

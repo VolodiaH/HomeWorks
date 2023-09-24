@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
 #pragma once
 
 #include <iostream>
@@ -29,7 +32,7 @@ public:
 
 	float operator()() const;
 
-	float &operator[](const size_t i);
+	float& operator[](const size_t i);
 
 	friend Vector2d operator+(const Vector2d &leftVector, const Vector2d &rightVector);
 	friend Vector2d operator-(const Vector2d &leftVector, const Vector2d &rightVector);
@@ -45,10 +48,9 @@ public:
 	void scale(float factorX, float factorY);
 
 private:
-	float m_x1{0.0};
-	float m_y1{0.0};
-    float m_x2{0.0};
-	float m_y2{0.0};
+	float m_x{0.0};
+	float m_y{0.0};
+
 };
 
 struct Vector3d
@@ -58,4 +60,4 @@ struct Vector3d
 	float z;
 };
 
-Vector3d crossProduct(const Vector3d &lhs, const Vector3d &rhs)
+Vector3d crossProduct(Vector3d lhs, Vector3d rhs);
